@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+body { /* 주석 */
+	background: #fcba03;
+}
+
+button {
+	background: pink;
+}
+
+.t1 {
+	background: #b5c9c5;
+	width: 150px;
+	text-align: center;
+}
+
+#b1 { /* #은 id 선택*/
+	color: red;
+}
+
+#b2 {
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<h3>영화 검색 페이지</h3>
+	<hr>
+	<a href="movie.html">
+		<button id="b1">첫페이지로</button>
+	</a>
+	<hr>
+	<a href="one4.jsp?id=100">
+	<button style="background: pink">100번 게시물</button>
+	</a>
+	<a href="one4.jsp?id=101">
+	<button style="background: pink">101번 게시물</button>
+	</a>
+	<a href="one4.jsp?id=102">
+	<button style="background: pink">102번 게시물</button>
+	</a>
+	<hr>
+	<form action="one4.jsp" method="get">
+		<table border="1">
+			<tr>
+				<td class="t1">검색할 영화ID :</td>
+				<td><input name="id"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="t1">
+					<button id="b2">검색할 영화ID 데이터 전송</button>
+				</td>
+			</tr>
+
+
+		</table>
+		<!--  입력한 값들이 서버(톰킷)으로 전달될때는 form 태그 안에 있어야 함 -->
+	</form>
+
+
+</body>
+</html>

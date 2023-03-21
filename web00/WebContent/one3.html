@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* alert('게시글삭제 페이지입니다. 반갑습니다.!') */
+</script>
+<style type="text/css">
+body { /* 주석 */
+	background: #6ef08c;
+}
+
+button {
+	background: pink;
+}
+
+.t1 {
+	background: lime;
+	width: 150px;
+	text-align: center;
+}
+
+#b1 { /* #은 id 선택*/
+	color: red;
+}
+
+#b2 {
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<h3>상품 검색(상세) 페이지</h3>
+	<hr>
+	<a href="product.html">
+		<button id="b1">첫페이지로</button>
+	</a>
+	<hr>
+	<a href="one3.jsp?id=100">
+	<button style="background: pink">100번 게시물</button>
+	</a>
+	<a href="one3.jsp?id=101">
+	<button style="background: pink">101번 게시물</button>
+	</a>
+	<a href="one3.jsp?id=102">
+	<button style="background: pink">102번 게시물</button>
+	</a>
+	<hr>
+	<form action="one3.jsp" method="get">
+		<table border="1">
+			<tr>
+				<td class="t1">검색할 상품ID :</td>
+				<td><input name="id"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="t1">
+					<button id="b2">검색할 상품ID 데이터 전송</button>
+				</td>
+			</tr>
+
+
+		</table>
+		<!--  입력한 값들이 서버(톰킷)으로 전달될때는 form 태그 안에 있어야 함 -->
+	</form>
+
+
+</body>
+</html>
