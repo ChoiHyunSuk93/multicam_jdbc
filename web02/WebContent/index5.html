@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function idCount() {
+		idValue = document.getElementById("id").value
+		resultTag = document.getElementById("result")
+		if (idValue.length >= 5) {
+			resultTag.innerHTML = '<img src=img/yes.jpg width=200 height=200>'
+		} else {
+			resultTag.innerHTML = '<img src=img/no.jpg width=200 height=200>'
+		}
+	}
+
+	function pwCheck() {
+		pw1Value = document.getElementById("pw1").value
+		pw2Value = document.getElementById("pw2").value
+		resultTag = document.getElementById("result")
+		if (pw1Value == pw2Value) {
+			/* resultTag.innerHTML = "패스워드 동일" */
+			location.href = "http://www.naver.com" /*사이트로 이동 */
+		} else {
+			resultTag.innerHTML = "패스워드 불일치"
+		}
+	}
+</script>
+</head>
+<body>
+	아이디 : <input id="id"> <button onclick="idCount()">글자수 체크</button><br> 
+	패스워드 :	<input id="pw1"><br> 
+	패스워드2 :<input id="pw2"><button onclick="pwCheck()">패스워드 동일</button>	<br>
+	
+	<div id="result" style="color: blue; background: lime; width: 500px; height: 50px; font-size: 30px">결과넣는곳</div>
+</body>
+</html>

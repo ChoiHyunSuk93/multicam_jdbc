@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.6.4.js"></script>
+<script type="text/javascript">
+	$(function() { 
+		$("#b1").click(function() {
+			$.ajax({
+				url : "data/meeting.xml",
+				success : function(doc) {
+					alert("xml요청 성공 >> " + doc)
+					list = $(doc).find("record") // find의 결과는 항상 여러개 ==> 배열로 만들어짐
+					alert(list.length)
+					for (i = 0; i < list.length; i++) { // 타입 상관없어서 안적어줘도 된다
+						rank = $(list[i]).find('rank').text()
+						name = $(list[i]).find('name').text()
+						phone = $(list[i]).find('phone').text()
+						boolean2 = $(list[i]).find('boolean').text()
+						time = $(list[i]).find('time').text()
+						$('#result').append(rank + ", " + 
+											name + ", " + 
+											phone + ", " + 
+											boolean2 + ", " + 
+											time + ", " + 
+											"<br>")
+						//받은 데이터를 추출해서 db에 저장해두고 싶은 경우
+						//브라우저--> 웹서버--> db
+						//받은 데이터를 웹서버에게 넘겨주면 됨.
+						//비동기 통신이 필요!!!
+						 //jsp를 호출해서 데이터 받아서 db에 넣어달라는 요청 
+						$.ajax({
+							url: "meeting.jsp",
+							data : {
+								rank : rank,
+								name : name,
+								phone : phone,
+								boolean2 : boolean2,
+								time : time
+							}, 
+							success: function() {
+								console.log('넣기 성공~!')
+							} //success
+						}) //ajax
+					} //for
+				} //success
+			}) // ajax
+		}) // b4
+	}) //$
+</script>
+</head>
+<body bgcolor="lime">
+<button style='color: blue; background: green' id ="b1">XML받아오기-1</button>
+
+<hr color="red">
+<div id="result"></div>
+</body>
+</html>
